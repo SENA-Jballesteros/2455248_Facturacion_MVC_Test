@@ -22,7 +22,6 @@ class ProductosController(FlaskController):
             unidad_medida = request.form.get('unidad_medida')
             cantidad_stock = request.form.get('cantidad_stock')
             categoria = request.form.get('categoria')
-            print("{}-{}-{}-{}-{}".format(descripcion,valor_unitario,unidad_medida,cantidad_stock,categoria))
             if not descripcion:
                 flash('La descripción es un campo obligatorio')   
             elif not valor_unitario:
