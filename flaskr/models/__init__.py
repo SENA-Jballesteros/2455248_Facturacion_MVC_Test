@@ -9,7 +9,7 @@ def obtener_conexion():
         return pymysql.connect(host='localhost',
                                     user='root',
                                     password='',
-                                    db='facturacion')
+                                    db='2455248_facturacion')
 
 
 
