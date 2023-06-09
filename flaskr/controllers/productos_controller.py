@@ -10,7 +10,6 @@ class ProductosController(FlaskController):
     @app.route("/productos")
     def productos():
         resultProductos = productos.obtener_productos()
-        resultProductos = productos.obtener_productos()
         return render_template('productos.html', titulo='Gestión de Productos', lista_productos=resultProductos)
     
     @app.route("/crear_producto", methods=['GET','POST'])
@@ -23,7 +22,7 @@ class ProductosController(FlaskController):
             cantidad_stock = request.form.get('cantidad_stock')
             categoria = request.form.get('categoria')
             if not descripcion:
-                flash('La descripción es un campo obligatorio')   
+                flash('La descripción es un campo obligatorio') 
             elif not valor_unitario:
                 flash('El valor unitario es un campo obligatorio')     
             elif not unidad_medida:
