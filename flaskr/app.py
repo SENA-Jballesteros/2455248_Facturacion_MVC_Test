@@ -1,5 +1,5 @@
 
-from flaskr.models import db, categorias, productos, facturas, facturas_productos
+from flaskr.models import db, categorias, productos, facturas, facturas_productos, proveedores, pedidos, pedidos_productos
 from flaskr import create_app
 from flask_controller import FlaskControllerRegister
 
