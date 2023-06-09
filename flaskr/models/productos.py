@@ -22,7 +22,7 @@ def obtener_productos():
     conexion = obtener_conexion()
     productos = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT id, descripcion, valor_unitario, unidad_medida, cantidad_stock, categoria FROM productos")
+        cursor.execute("SELECT T1.id, descripcion, valor_unitario, unidad_medida, cantidad_stock, T2.id as id_categoria , T2.categoria as categoria FROM productos AS T1 INNER JOIN categorias AS T2 ON T1.categoria = T2.id")
         productos = cursor.fetchall()
     conexion.close()
     return productos
