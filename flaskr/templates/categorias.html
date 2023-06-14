@@ -2,8 +2,8 @@
 {% block title %}{{titulo}}{% endblock %}
 
 {% block content %}
-   <h1>{{titulo}}</h1>
-   <table class="table">
+    <h1>{{titulo}}</h1>
+    <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Id</th>
@@ -18,13 +18,12 @@
                 <th scope="row">{{categoria[0]}}</th>
                 <td>{{categoria[1]}}</td>
                 <td>
-                  <button type="button" class="btn btn-info">Editar</button>
-                  <button type="button" class="btn btn-danger">Borrar</button>
+                  <button type="button" class="btn btn-info" onclick='location.href="/editar_categoria/{{ categoria[0] }}"'>Editar</button>
+                  <button type="button" class="btn btn-danger" onclick="confirmacion_borrado('{{ categoria[0] }}', 'categorias')">Borrar</button>
                 </td>
             </tr>
          {% endfor %}
       </tbody>
     </table>
-    
-
 {% endblock %}
+

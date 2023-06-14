@@ -15,7 +15,6 @@ class ProductosController(FlaskController):
     @app.route("/crear_producto", methods=['GET','POST'])
     def crear_producto():
         if request.method == 'POST':
-            print("Entra a crear_Producto POST")
             descripcion = request.form.get('descripcion')
             valor_unitario = request.form.get('valor_unitario')
             unidad_medida = request.form.get('unidad_medida')
@@ -35,14 +34,12 @@ class ProductosController(FlaskController):
                 producto = productos.Productos(descripcion,valor_unitario,unidad_medida,cantidad_stock,categoria)
                 productos.crear_producto(producto=producto)
                 return redirect(url_for('productos'))
-        print("Entra a crear producto GET")
         lista_categorias=[]    
         lista_categorias = categorias.obtener_categorias()
         return render_template('crear_producto.html', titulo='Nuevo Producto', categorias=lista_categorias)
     
-    @app.route("/eliminar_producto/<id>/")
+    @app.route("/eliminar_producto/<int:id>/")
     def eliminar_producto(id):
-        print('entra eliminar')
-        productos.crear_producto(id=id)
+        productos.eliminar_producto_producto(id=id)
         return redirect(url_for('productos'))
     
