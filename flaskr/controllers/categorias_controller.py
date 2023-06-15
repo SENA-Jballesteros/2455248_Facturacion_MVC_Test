@@ -8,8 +8,7 @@ from flask import request, redirect, url_for, flash
 
 class CategoriasController(FlaskController):   
     @app.route("/categorias")
-    def categorias():
-        print(session['nombre_usuario'])
+    def categorias():       
         result_categorias = categorias.obtener_categorias()
         return render_template('categorias.html', titulo='Gestión de Categorias', lista_categorias=result_categorias)
     
